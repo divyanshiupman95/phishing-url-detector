@@ -1,0 +1,69 @@
+{
+  "model_name": "RandomForestClassifier",
+  "provenance": {
+    "training_script": "train_experimental_model.py",
+    "serialized_bundle": "phishing_model.pkl",
+    "baseline_script_reference": "model_training.py"
+  },
+  "feature_count": 13,
+  "features": [
+    "url_length",
+    "domain_length",
+    "num_dots",
+    "num_hyphens",
+    "has_at_symbol",
+    "num_digits",
+    "digit_ratio",
+    "is_https",
+    "has_ip_address",
+    "num_subdomains",
+    "num_suspicious_words",
+    "has_double_slash_redirect",
+    "url_depth"
+  ],
+  "training_samples": 48000,
+  "test_samples": 12000,
+  "held_out_benchmark_metrics": {
+    "evaluation_split": "12,000 held-out balanced test samples (PhiUSIIL + Deep Supplement)",
+    "accuracy": 0.9915,
+    "precision": 0.9935,
+    "recall": 0.9895,
+    "specificity": 0.9935,
+    "balanced_accuracy": 0.9915,
+    "f1_score": 0.9915,
+    "roc_auc": 0.9974,
+    "confusion_matrix": {
+      "true_negatives": 5961,
+      "false_positives": 39,
+      "false_negatives": 63,
+      "true_positives": 5937
+    }
+  },
+  "live_diagnostic_evaluation": {
+    "openphish_live_snapshot_300": {
+      "dataset_description": "300 live active threat URLs from OpenPhish feed",
+      "total_samples": 300,
+      "detected_phishing_gte_70_pct": 259,
+      "recall_gte_70_pct": 0.8633,
+      "detected_phishing_gte_50_pct": 263,
+      "recall_gte_50_pct": 0.8767,
+      "detected_suspicious_or_phish_gte_35_pct": 267,
+      "recall_gte_35_pct": 0.8900
+    },
+    "legitimate_homepages_reference_30": {
+      "total_samples": 30,
+      "classified_safe": 30,
+      "safe_rate": 1.0000
+    },
+    "legitimate_deep_paths_reference_15": {
+      "total_samples": 15,
+      "classified_safe": 13,
+      "safe_rate": 0.8667
+    }
+  },
+  "thresholds": {
+    "likely_safe": "< 0.35",
+    "suspicious": "0.35 to < 0.70",
+    "phishing": ">= 0.70"
+  }
+}

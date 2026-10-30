@@ -1,0 +1,32 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+*.tmp
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local Backup Folders and ZIP Archives
+backup_*/
+*.zip
+
+# Preserved and experimental models (phishing_model.pkl is the production model)
+phishing_model_baseline_backup.pkl
+phishing_model_experimental.pkl
+phishing_model_preserved_master.pkl
+
+# Raw large datasets and live snapshots (redistribution license unverified)
+data/PhiUSIIL_Phishing_URL_Dataset.csv
+data/LegitPhish_Dataset.csv
+data/openphish_live_snapshot.txt
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
